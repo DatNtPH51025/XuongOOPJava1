@@ -45,7 +45,37 @@ public class CanBo {
         System.out.println("Lương : " + Tinh_Luong());
     }
 
-    
+    public int getMaNV() {
+        return maNV;
+    }
+
+    public void setMaNV(int maNV) {
+        this.maNV = maNV;
+    }
+
+    public String getHoTen() {
+        return hoTen;
+    }
+
+    public void setHoTen(String hoTen) {
+        this.hoTen = hoTen;
+    }
+
+    public double getThue() {
+        return thue;
+    }
+
+    public void setThue(double thue) {
+        this.thue = thue;
+    }
+
+    public double getLuong() {
+        return luong;
+    }
+
+    public void setLuong(double luong) {
+        this.luong = luong;
+    }
 }
 
 
