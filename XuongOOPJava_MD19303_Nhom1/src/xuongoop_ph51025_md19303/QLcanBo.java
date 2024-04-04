@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class QLcanBo {
     private ArrayList<CanBo> dsCB = new ArrayList<>();
     private Scanner scanner = new Scanner(System.in);
+    private Map<String, Integer> phongBanCounts;
     int n;
     
     public void NhapDanhSachTuBanPhim(){
@@ -277,4 +278,16 @@ public class QLcanBo {
     }
 
     }
+    public void thongKeNhanVienTheoPhongBan() {
+        System.out.println("Thong ke so luong nhan vien theo tung phong ban:");
+        for (Map.Entry<String, Integer> entry : phongBanCounts.entrySet()) {
+            System.out.println("Phong ban: " + entry.getKey() + ", So luong nhan vien: " + entry.getValue());
+        }
+    }
+    
+    public void xoaTatCaNhanVien() {
+        dsCB.clear();
+        System.out.println("Da xoa tat ca nhan vien.");
+    }
+    
 }
