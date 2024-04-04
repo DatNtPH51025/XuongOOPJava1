@@ -3,7 +3,6 @@ package xuongoop_ph51025_md19303;
 
 
 import xuongoop_ph51025_md19303.Program;
-// Lớp Menu chứa menu chương trình và phương thức main
 import java.util.Scanner;
 
 public class Program {
@@ -66,6 +65,12 @@ public class Program {
                     break;
                 case 9:
                     QLCB.SapXep5NhanVienThuNhapCaoNhat();
+                    break;
+                case 10:
+                    QLCB.thongKeNhanVienTheoPhongBan();
+                   break;
+                case 11:
+                    QLCB.xoaTatCaNhanVien();
                     break;
                 case 0:
                     System.out.println("Thoat chuong trinh...");
