@@ -11,3 +11,4 @@ Members:
 Tác Giả Các File:
 File cán bộ: Trần Nam Thắng-ph52751\n
 File XuongOOPJava_MD19303_Nhom1: Nguyễn Tiến Đạt-ph51025
+File oopjava_nhom1_md19302:Nguyễn Trung Kiên-PH52718
