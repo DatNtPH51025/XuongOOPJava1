@@ -53,19 +53,17 @@ public class KySu extends CanBo {
         super.nhap();
         System.out.print("Nhap ky nang: ");
         kyNang = scanner.nextLine();
-        System.out.print("Nhap nganh: ");
-        nganh = scanner.nextLine();
         System.out.print("Nhap phu cap: ");
         phuCap = Double.parseDouble(scanner.nextLine());
         System.out.print("Nhap loai ky su (PhanMem/PhanCung): ");
         String loaiKySu = scanner.nextLine();
         // Thiết lập chức vụ dựa trên loại kỹ sư
         if (loaiKySu.equalsIgnoreCase("PhanMem")) {
-            chucVu = "Kỹ Sư Phần Mềm";
+            chucVu = "Ky Su Phan Mem";
         } else if (loaiKySu.equalsIgnoreCase("PhanCung")) {
-            chucVu = "Kỹ Sư Phần Cứng";
+            chucVu = "Ky Su Phan Cung";
         } else {
-            chucVu = "Kỹ Sư"; // Mặc định là "Kỹ Sư" nếu không nhập đúng loại
+            chucVu = "Ky Su"; 
         }
     }
 

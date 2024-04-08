@@ -8,23 +8,30 @@ import java.util.InputMismatchException;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Scanner;
+import xuongoop_ph51025_md19303.CanBo;
 
 public class QLcanBo {
 
     private ArrayList<CanBo> dsCB = new ArrayList<>();
     private Scanner scanner = new Scanner(System.in);
     int n;
-    private Map<String, Integer> chucVuCounts = new HashMap<>();;
+    private Map<String, Integer> chucVuCounts = new HashMap<>();
 
     public void NhapDanhSachTuBanPhim() {
+        // Nhập số lượng cán bộ
         System.out.println("Moi ban nhap so can bo: ");
         n = Integer.parseInt(scanner.nextLine());
+
+        // Nhập thông tin cán bộ từ bàn phím
         for (int i = 0; i < n; i++) {
             System.out.println("Moi nhan can bo thu " + (i + 1) + " :");
-            System.out.println("1. Nhan vien Van phong   2. Nhan vien san xuat   3. Ke toan \n"
-                    + "4. Ky su   5. Truong Phong   6. Giam doc");
+            System.out.println("""
+                               1. Nhan vien Van phong   2. Nhan vien san xuat   3. Ke toan 
+                               4. Ky su   5. Truong Phong   6. Giam doc""");
             int chon = scanner.nextInt();
+            scanner.nextLine(); // Đọc và loại bỏ dòng mới từ bộ nhớ đệm
             switch (chon) {
+                // Thêm cán bộ vào danh sách tương ứng với loại cán bộ
                 case 1:
                     NhanVienVanPhong nvvp = new NhanVienVanPhong();
                     nvvp.nhap();
@@ -73,7 +80,6 @@ public class QLcanBo {
                 CB.xuat();
             }
         }
-
     }
 
     public void TimNhanVienTheoMa() {
@@ -173,7 +179,7 @@ public class QLcanBo {
 
         System.out.println("--------------- Danh sach can bo co luong trong khoang tu " + min + " den " + max + " ---------------");
         System.out.printf("%-20s %-20s %-20s %-20s %-20s\n", "maCb", "hoTen", "Luong", "ThuNhap", "Thuetn");
-        boolean found = false; // Biến để kiểm tra xem có tìm thấy nhân viên trong khoảng lương cho trước không
+        boolean found = false; 
         for (CanBo CB : dsCB) {
             if (CB.getLuong() >= min && CB.getLuong() <= max) {
                 CB.xuat();
@@ -187,67 +193,19 @@ public class QLcanBo {
     }
 
     public void SapXepNhanVienTheoHoTen() {
-        Scanner scanner = new Scanner(System.in);
-
-        try {
-            System.out.println("Ban muon sap xep danh sach tu tren xuong hay tu duoi len?");
-            System.out.println("1. Tu tren xuong");
-            System.out.println("2. Tu duoi len");
-            System.out.print("Chon: ");
-
-            int choice = scanner.nextInt();
-            scanner.nextLine(); // consume the newline character
-
-            switch (choice) {
-                case 1:
-                    sapXepTuTrenXuong();
-                    break;
-                case 2:
-                    sapXepTuDuoiLen();
-                    break;
-                default:
-                    System.out.println("Lua chon khong hop le!");
-            }
-        } catch (InputMismatchException e) {
-            System.err.println("Nhap khong hop le. Vui long nhap 1 hoac 2.");
-        } finally {
-            scanner.close(); // Đóng Scanner sau khi sử dụng xong
-        }
-    }
-
-    public void sapXepTuTrenXuong() {
-        // Kiểm tra nếu danh sách rỗng
         if (dsCB.isEmpty()) {
             System.out.println("Danh sach nhan vien trong. Khong co gi de sap xep.");
             return;
         }
 
-        // Sắp xếp từ trên xuống và hiển thị danh sách
-        Comparator<CanBo> comp = Comparator.comparing(CanBo::getHoTen).reversed();
-        Collections.sort(dsCB, comp);
-        XuatDanhSachNhanVien();
-    }
-
-    public void sapXepTuDuoiLen() {
-        // Kiểm tra nếu danh sách rỗng
-        if (dsCB.isEmpty()) {
-            System.out.println("Danh sach nhan vien trong. Khong co gi de sap xep.");
-            return;
-        }
-
-        // Sắp xếp từ dưới lên và hiển thị danh sách
+        // Sắp xếp từ dưới lên theo họ tên và hiển thị danh sách
         Comparator<CanBo> comp = Comparator.comparing(CanBo::getHoTen);
         Collections.sort(dsCB, comp);
         XuatDanhSachNhanVien();
     }
 
     public void SapXepNhanVienTheoThuNhap() {
-        Comparator<CanBo> comp = new Comparator<CanBo>() {
-            @Override
-            public int compare(CanBo o1, CanBo o2) {
-                return Double.compare(o2.getThuNhap(), o1.getThuNhap());
-            }
-        };
+        Comparator<CanBo> comp = (CanBo o1, CanBo o2) -> Double.compare(o2.getThuNhap(), o1.getThuNhap());
 
         if (!dsCB.isEmpty()) {
             Collections.sort(dsCB, comp);
@@ -260,12 +218,7 @@ public class QLcanBo {
 
     public void SapXep5NhanVienThuNhapCaoNhat() {
 
-        Comparator<CanBo> comp = new Comparator<CanBo>() {
-            @Override
-            public int compare(CanBo o1, CanBo o2) {
-                return Double.compare(o2.getThuNhap(), o1.getThuNhap());
-            }
-        };
+        Comparator<CanBo> comp = (CanBo o1, CanBo o2) -> Double.compare(o2.getThuNhap(), o1.getThuNhap());
 
         Collections.sort(dsCB, comp);
         System.out.println("---------- 5 Nhan vien co thu nhap cao nhat: ----------");
@@ -279,26 +232,21 @@ public class QLcanBo {
     }
 
     public void thongKeNhanVienTheoChucVu() {
-    for (CanBo canBo : dsCB) {
-        String chucVu = canBo.getChucVu();
-        // Kiểm tra xem chức vụ đã tồn tại trong Map hay chưa
-        if (chucVuCounts.containsKey(chucVu)) {
-            // Nếu đã tồn tại, tăng số lượng lên 1
-            chucVuCounts.put(chucVu, chucVuCounts.get(chucVu) + 1);
-        } else {
-            // Nếu chưa tồn tại, thêm chức vụ mới vào Map với số lượng là 1
-            chucVuCounts.put(chucVu, 1);
+        chucVuCounts.clear();
+
+        for (CanBo canBo : dsCB) {
+            String chucVu = canBo.getChucVu();
+            if (chucVuCounts.containsKey(chucVu)) {
+                chucVuCounts.put(chucVu, chucVuCounts.get(chucVu) + 1);
+            } else {
+                chucVuCounts.put(chucVu, 1);
+            }
+        }
+        System.out.println("Thong ke so luong nhan vien theo chuc vu:");
+        for (Map.Entry<String, Integer> entry : chucVuCounts.entrySet()) {
+            System.out.println("Chuc vu: " + entry.getKey() + ", So luong nhan vien: " + entry.getValue());
         }
     }
-
-    // In ra kết quả thống kê
-    System.out.println("Thong ke so luong nhan vien theo chuc vu:");
-    for (Map.Entry<String, Integer> entry : chucVuCounts.entrySet()) {
-        System.out.println("Chuc vu: " + entry.getKey() + ", So luong nhan vien: " + entry.getValue());
-    }
-}
-
-
 
     public void xoaTatCaNhanVien() {
         dsCB.clear();

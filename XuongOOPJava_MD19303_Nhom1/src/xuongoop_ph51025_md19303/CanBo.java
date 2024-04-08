@@ -22,7 +22,6 @@ import java.util.Scanner;
         
     }
     
-    
     public void nhap() {
         System.out.println("Nhap thong tin nhan vien !");
         System.out.print("Nhap Ma can bo: ");

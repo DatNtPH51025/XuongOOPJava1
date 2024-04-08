@@ -3,7 +3,7 @@ package xuongoop_ph51025_md19303;
 import java.util.Scanner;
 
 public class Program {
-    public static void hienThiMenu() {
+    public static void hienThiMenu() {  
         System.out.println("+================= Menu Phong Ban: =================+");
         System.out.println("+ 1. Nhap danh sach Nhan Vien                       +");
         System.out.println("+ 2. Hien Thi Danh Sach Nhan Vien                   +");
@@ -23,24 +23,24 @@ public class Program {
     public static void main(String[] args) {
         QLcanBo QLCB = new QLcanBo();
         Scanner scanner = new Scanner(System.in);
-
-        while (true) {
+        while (true) {          
             hienThiMenu();
             System.out.print("Nhap lua chon cua ban: ");
             int luaChon; 
             try {
-            luaChon = Integer.parseInt(scanner.nextLine());
-        } catch (NumberFormatException e) {
-            System.err.println("Vui long nhap mot so nguyen.");
-            continue;
-        }
+                
+                luaChon = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                
+                System.err.println("Vui long nhap mot so nguyen.");
+                continue;
+            }
+            
             switch (luaChon) {
                 case 1:
-                    System.out.println("----------Nhap danh sach nhan vien: ----------");
                     QLCB.NhapDanhSachTuBanPhim();
                     break;
                 case 2:
-                    System.out.println("----------Xuat danh sach nhan vien: ----------");
                     QLCB.XuatDanhSachNhanVien();
                     break;
                 case 3:
@@ -80,5 +80,6 @@ public class Program {
         }
     }
 }
+
 
 
