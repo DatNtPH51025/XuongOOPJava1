@@ -1,15 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package xuongoop_ph51025_md19303;
 
 import java.util.Scanner;
 
-/**
- *
- * @author datda
- */
+
 class KeToan extends CanBo {
     private String trinhDo;
     private String chucVu;
@@ -43,16 +37,25 @@ class KeToan extends CanBo {
     }
     
     @Override
-    public void nhap() {
-        super.nhap();
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Nhap trinh do:");
-        trinhDo = scanner.nextLine();
-        System.out.println("Nhap chuc vu:");
-        chucVu = scanner.nextLine();
-        System.out.println("Nhap luong thuong:");
-        luongThuong = Double.parseDouble(scanner.nextLine());
+public void nhap() {
+    super.nhap();
+    Scanner scanner = new Scanner(System.in);
+    System.out.println("Nhap trinh do:");
+    trinhDo = scanner.nextLine();
+    System.out.println("Nhap chuc vu (Ke Toan Truong/Pho Ke Toan):");
+    String inputChucVu = scanner.nextLine();
+    // Thiết lập chức vụ tùy thuộc vào giá trị nhập vào
+    if (inputChucVu.equalsIgnoreCase("Ke Toan Truong")) {
+        setChucVu("Ke toan truong");
+    } else if (inputChucVu.equalsIgnoreCase("Pho Ke Toan")) {
+        setChucVu("Pho Ke Toan");
+    } else {
+        setChucVu("Nhan Vien Ke Toan"); // Mặc định 
     }
+    System.out.println("Nhap luong thuong:");
+    luongThuong = Double.parseDouble(scanner.nextLine());
+}
+
 
     @Override
 public Double getThuNhap() {

@@ -1,21 +1,35 @@
 package xuongoop_ph51025_md19303;
 
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
     public class CanBo {
     private int maCB;
     private String hoTen;
     private double luong;
+    private String chucVu;
     Scanner scanner = new Scanner(System.in);
+
+    public CanBo() {  
+    }
+
+    public CanBo(int maCB, String hoTen, double luong, Map<String, Integer> phongBanCounts) {
+        this.maCB = maCB;
+        this.hoTen = hoTen;
+        this.luong = luong;
+        
+    }
+    
     
     public void nhap() {
-        System.out.println("Nhap thong tin nhan vien !\n");
-        System.out.print("Nhap Ma nhan vien: ");
+        System.out.println("Nhap thong tin nhan vien !");
+        System.out.print("Nhap Ma can bo: ");
         maCB = Integer.parseInt(scanner.nextLine());
-        System.out.print("Ho và ten: ");
+        System.out.print("Ho va ten: ");
         hoTen = scanner.nextLine();
-        System.out.print("Lương: ");
+        System.out.print("Luong: ");
         luong = Double.parseDouble(scanner.nextLine());
     }
     
@@ -55,6 +69,14 @@ import java.util.Scanner;
 
     public void setLuong(double luong) {
         this.luong = luong;
+    }
+    
+    public String getChucVu() {
+        return chucVu;
+    }
+
+    public void setChucVu(String chucVu) {
+        this.chucVu = chucVu;
     }
 
     public void xuat() {

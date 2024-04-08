@@ -1,8 +1,5 @@
-
 package xuongoop_ph51025_md19303;
 
-
-import xuongoop_ph51025_md19303.Program;
 import java.util.Scanner;
 
 public class Program {
@@ -17,9 +14,10 @@ public class Program {
         System.out.println("+ 7. Sap Xep Nhan Vien Theo Ten                     +");
         System.out.println("+ 8. Sap Xep Nhan Vien Theo Thu Nhap                +");
         System.out.println("+ 9. Danh Sach 5 Nhan Vien Co Thu Nhap Cao Nhat     +");
+        System.out.println("+ 10. Thong Ke Nhan Vien Theo Chuc Vu               +");
+        System.out.println("+ 11. Xoa tat ca nhan vien                          +");
         System.out.println("+ 0. Thoat                                          +");
-        System.out.println("+===================================================+");
-        
+        System.out.println("+================******************=================+");
     }
 
     public static void main(String[] args) {
@@ -67,7 +65,7 @@ public class Program {
                     QLCB.SapXep5NhanVienThuNhapCaoNhat();
                     break;
                 case 10:
-                    QLCB.thongKeNhanVienTheoPhongBan();
+                    QLCB.thongKeNhanVienTheoChucVu();
                    break;
                 case 11:
                     QLCB.xoaTatCaNhanVien();
@@ -77,7 +75,7 @@ public class Program {
                     scanner.close();
                     return;
                 default:
-                    System.out.println("Lua chon khong hop le!");
+                    System.out.println("Lua chon khong hop le! Moi chon lai.");
             }
         }
     }

@@ -7,6 +7,7 @@ import xuongoop_ph51025_md19303.CanBo;
 class NhanVienSanXuat extends CanBo {
     private int soSanPham;
     private double thuong;
+    private String chucVu;
 
     public NhanVienSanXuat() {
 }
@@ -30,6 +31,10 @@ class NhanVienSanXuat extends CanBo {
     public void setThuong(double thuong) {
         this.thuong = thuong;
     }
+
+    public void setChucVu(String chucVu) {
+        this.chucVu = chucVu;
+    }
     
     @Override
     public void nhap() {
@@ -39,6 +44,7 @@ class NhanVienSanXuat extends CanBo {
         soSanPham = Integer.parseInt(scanner.nextLine());
         System.out.println("Nhap thuong:");
         thuong = Double.parseDouble(scanner.nextLine());
+        setChucVu("Nhan Vien San Xuat");
     }
 
     @Override

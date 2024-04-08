@@ -9,7 +9,7 @@ public class GiamDoc extends CanBo {
     Scanner scanner = new Scanner(System.in);
 
     public GiamDoc() {
-}
+    }
 
     public String getHeSoChucVu() {
         return heSoChucVu;
@@ -35,23 +35,38 @@ public class GiamDoc extends CanBo {
         this.luongTrachNhiem = luongTrachNhiem;
     }
 
-    
-
     public void nhap() {
-        super.nhap();
-        System.out.print("Nhập hệ số chức vụ: ");
-        this.heSoChucVu = scanner.nextLine();
-        System.out.print("Nhập lương thưởng: ");
-        this.luongThuong = Double.parseDouble(scanner.nextLine());
-        System.out.print("Nhập lương trách nhiệm: ");
-        this.luongTrachNhiem = Double.parseDouble(scanner.nextLine());
+    super.nhap();
+    Scanner scanner = new Scanner(System.in);
+    
+    System.out.println("Nhap trinh do:");
+    String trinhDo = scanner.nextLine();
+    
+    System.out.println("Nhap chuc vu (Giam Doc Tai Chinh/Giam Doc Tiep Thi):");
+    String inputChucVu = scanner.nextLine();
+    
+    // Thiết lập chức vụ tùy thuộc vào giá trị nhập vào
+    if (inputChucVu.equalsIgnoreCase("Giam Doc Tai Chinh")) {
+        setChucVu("Giam Doc Tai Chinh");
+    } else if (inputChucVu.equalsIgnoreCase("Giam Doc Tiep Thi")) {
+        setChucVu("Giam Doc Tiep Thi");
+    } else {
+        setChucVu("Giam Doc Dieu Hanh"); 
     }
+    
+    System.out.println("Nhap luong thuong:");
+    luongThuong = Double.parseDouble(scanner.nextLine());
+}
 
     @Override
-public Double getThuNhap() {
-    return super.getThuNhap() + luongTrachNhiem + luongThuong; 
-}
+    public Double getThuNhap() {
+        return super.getThuNhap() + luongTrachNhiem + luongThuong;
+    }
 
     
 }
+
+
+    
+
 
